@@ -55,7 +55,7 @@ Prefix for SCSS variables. These variables are created: `$grunt-images-names`, `
 Type: `String`
 Default: ``
 
-Prefix for function names. These functions are created: '{prefixFunctions}image-width', '{prefixFunctions}image-height', '{prefixFunctions}image-url' and '{prefixFunctions}inline-image'.
+Prefix for function names. These functions are created: `{prefixFunctions}image-width`, `{prefixFunctions}image-height`, `{prefixFunctions}image-url` and `{prefixFunctions}inline-image`.
 
 #### antiCache
 
