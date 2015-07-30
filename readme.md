@@ -2,6 +2,8 @@
 
 Grunt tasks to replace Compass image helpers. It is recommended to run this task with watch task on image folder only.
 
+This fork allows you to set prefixFunctions string in the options.
+
 ### Helpers
 
 All helpers have one argument: image name. Name is created relatively to the `imageRoot` option. If we want to use an image in subfolder, we need to enter a path incl. folder name.
@@ -47,6 +49,13 @@ Type: `String`
 Default: `grunt-images`
 
 Prefix for SCSS variables. These variables are created: `$grunt-images-names`, `$grunt-images-widths`, `$grunt-images-heights`, `$grunt-images-base64` and `$grunt-images-relative-path`.
+
+#### prefixFunctions
+
+Type: `String`
+Default: ``
+
+Prefix for function names. These functions are created: '{prefixFunctions}image-width', '{prefixFunctions}image-height', '{prefixFunctions}image-url' and '{prefixFunctions}inline-image'.
 
 #### antiCache
 

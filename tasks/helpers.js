@@ -8,6 +8,7 @@ module.exports = function (grunt) {
     grunt.registerMultiTask('scss_images', 'Create image size variables', function() {
         var options = this.options({
             prefix: 'grunt-images',
+            prefixFunctions: '',
             imageRoot: '',
             relativePath: '',
             antiCache: false,
@@ -68,21 +69,21 @@ module.exports = function (grunt) {
 
             // this is temporary solution
             output += [
-                "@function image-width($image) {",
+                "@function " + options.prefixFunctions + "image-width($image) {",
                     "$index: index($" + options.prefix + "-ids, $image);",
                     "@if $index {",
                         "@return nth($" + options.prefix + "-widths, $index)*1px;",
                     "}",
                 "}",
 
-                "@function image-height($image) {",
+                "@function " + options.prefixFunctions + "image-height($image) {",
                     "$index: index($" + options.prefix + "-ids, $image);",
                     "@if $index {",
                         "@return nth($" + options.prefix + "-heights, $index)*1px;",
                     "}",
                 "}",
 
-                "@function image-url($image) {",
+                "@function " + options.prefixFunctions + "image-url($image) {",
                     "$index: index($" + options.prefix + "-ids, $image);",
                     "@if $index {",
                         "$image-name: nth($" + options.prefix + "-names, $index);",
@@ -93,7 +94,7 @@ module.exports = function (grunt) {
                     "}",
                 "}",
 
-                "@function inline-image($image) {",
+                "@function " + options.prefixFunctions + "inline-image($image) {",
                     "$index: index($" + options.prefix + "-ids, $image);",
                     "@if $index {",
                         "$base64: nth($" + options.prefix + "-base64, $index);",

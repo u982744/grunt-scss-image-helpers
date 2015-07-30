@@ -1,9 +1,9 @@
 {
-  "name": "grunt-scss-image-helpers",
+  "name": "grunt-scss-image-helpers-tb",
   "version": "0.1.0",
-  "description": "Creates variables for Compass-like image helpers for url, width and height of images.",
+  "description": "Creates variables for Compass-like image helpers for url, width and height of images. This fork allows you to set prefixFunctions string in the options.",
   "keywords": ["gruntplugin", "scss", "sass"],
-  "author": "Daniel Cirmaciu <daniel@cirmaciu.cz> (http://cirmaciu.cz)",
+  "author": "Tim Berman <berman.tim@gmail.com>",
   "scripts": {
     "test": "grunt"
   },
@@ -24,10 +24,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/cirmaciu/grunt-scss-image-helpers.git"
+    "url": "https://github.com/u982744/grunt-scss-image-helpers.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cirmaciu/grunt-scss-image-helpers/issues"
+    "url": "https://github.com/u982744/grunt-scss-image-helpers/issues"
   }
 }
