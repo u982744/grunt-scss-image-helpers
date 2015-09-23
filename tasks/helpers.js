@@ -69,22 +69,32 @@ module.exports = function (grunt) {
 
             // this is temporary solution
             output += [
+                "@function " + options.prefixFunctions + "get-image-index($ids, $image) {",
+                    "$index: index($ids, $image);",
+                    "@if ($index == null) {",
+                        "@warn 'image: ' + $image + ' was not found. Please fix this issue before committing your code.';",
+                    "}",
+                    "@else {",
+                        "@return $index;",
+                    "}",
+                "}",
+
                 "@function " + options.prefixFunctions + "image-width($image) {",
-                    "$index: index($" + options.prefix + "-ids, $image);",
+                    "$index: " + options.prefixFunctions + "get-image-index($" + options.prefix + "-ids, $image);",
                     "@if $index {",
                         "@return nth($" + options.prefix + "-widths, $index)*1px;",
                     "}",
                 "}",
 
                 "@function " + options.prefixFunctions + "image-height($image) {",
-                    "$index: index($" + options.prefix + "-ids, $image);",
+                    "$index: " + options.prefixFunctions + "get-image-index($" + options.prefix + "-ids, $image);",
                     "@if $index {",
                         "@return nth($" + options.prefix + "-heights, $index)*1px;",
                     "}",
                 "}",
 
                 "@function " + options.prefixFunctions + "image-url($image) {",
-                    "$index: index($" + options.prefix + "-ids, $image);",
+                    "$index: " + options.prefixFunctions + "get-image-index($" + options.prefix + "-ids, $image);",
                     "@if $index {",
                         "$image-name: nth($" + options.prefix + "-names, $index);",
                         "@return url('#{$" + options.prefix + "-relative-path}#{$image-name}')",
@@ -95,7 +105,7 @@ module.exports = function (grunt) {
                 "}",
 
                 "@function " + options.prefixFunctions + "inline-image($image) {",
-                    "$index: index($" + options.prefix + "-ids, $image);",
+                    "$index: " + options.prefixFunctions + "get-image-index($" + options.prefix + "-ids, $image);",
                     "@if $index {",
                         "$base64: nth($" + options.prefix + "-base64, $index);",
                         "@if $base64 == '' {",
